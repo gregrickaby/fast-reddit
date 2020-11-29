@@ -19,7 +19,7 @@ export default function Results({subreddit}) {
     <>
       <ul className="list-inside list-decimal">
         {posts.map((post) => (
-          <li className="text-lg pb-4 leading-none" key={post.id}>
+          <li className="text-lg pb-4 leading-tight" key={post.id}>
             <a
               className="hover:underline visited:text-red-900"
               href={post.url}
