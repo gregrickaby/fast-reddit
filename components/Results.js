@@ -30,8 +30,9 @@ export default function Results({subreddit}) {
     setLoading(false)
   }
 
-  // Load posts
+  // Load posts when component mounts.
   useEffect(() => {
+    setLastPost(null) // Clear any last posts on initial mount.
     fetchData()
   }, []) // eslint-disable-line
 
@@ -49,8 +50,8 @@ export default function Results({subreddit}) {
           </li>
         ))}
       </ul>
-      <button className="flex border p-2 m-auto" onClick={fetchData}>
-        {loading ? <>Loading posts...</> : <>Load More</>}
+      <button className="flex border py-2 px-4 m-auto" onClick={fetchData}>
+        {loading ? <>Loading Posts...</> : <>Load More</>}
       </button>
     </>
   )
