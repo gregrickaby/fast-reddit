@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+input[type='submit'] {
+  @apply dark:bg-gray-900 dark:text-white;
+}
+
+input[type='text'] {
+  @apply dark:text-black;
+}
+
+input[type='submit'] {
+  @apply dark:border-gray-600;
+}
