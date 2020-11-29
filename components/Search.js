@@ -5,8 +5,8 @@ export default function Search() {
   const [inputValue, setValue] = useState('reactjs')
   const [subreddit, setSubreddit] = useState(inputValue)
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  function handleSubmit(event) {
+    event.preventDefault()
     setSubreddit(inputValue)
   }
 
