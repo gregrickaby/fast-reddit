@@ -20,11 +20,15 @@ export default function Search() {
         <input
           id="search"
           type="text"
-          className="border p-2 w-4/6"
+          className="border p-2 w-1/2"
           value={inputValue}
           onChange={(e) => setValue(e.target.value)}
         />
-        <input className="border py-2 px-4" type="submit" value="View Posts" />
+        <input
+          className="border py-2 px-4 ml-1"
+          type="submit"
+          value="View Posts"
+        />
       </form>
       <Results subreddit={subreddit} />
     </>
