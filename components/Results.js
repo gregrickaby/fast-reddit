@@ -1,56 +1,55 @@
 import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
+import {fetchData} from '@/lib/functions'
 
 export default function Results({subreddit}) {
   const [loading, setLoading] = useState(null)
   const [posts, setPosts] = useState([])
   const [lastPost, setLastPost] = useState(null)
 
-  async function fetchData() {
+  function clearState() {
+    setPosts([])
+    setLastPost(null)
+  }
+
+  async function loadInitialPosts() {
     setLoading(true)
-
-    // Fetch 10 posts.
-    const res = await fetch(
-      `https://www.reddit.com/r/${subreddit}/hot/.json?limit=10&after=${lastPost}`
-    )
-
-    // Convert results to JSON.
-    const json = await res.json()
-
-    // Pluck out all the posts.
-    const posts = json.data.children.map((post) => post.data)
-
-    // If there are posts...set them in state.
-    if (posts.length > 0) {
-      setPosts((prevResults) => [...prevResults, ...posts])
-    }
-
-    // Keep track of the last post, for load more.
-    setLastPost(json.data.after)
+    clearState()
+    const data = await fetchData(subreddit)
+    setPosts(data.posts)
+    setLastPost(data.after)
     setLoading(false)
   }
 
-  // Load posts when component mounts.
+  async function loadMorePosts() {
+    setLoading(true)
+    const data = await fetchData(subreddit, lastPost)
+    setPosts((prevResults) => [...prevResults, ...data.posts])
+    setLastPost(data.after)
+    setLoading(false)
+  }
+
   useEffect(() => {
-    setLastPost(null) // Clear any last posts on initial mount.
-    fetchData()
-  }, []) // eslint-disable-line
+    loadInitialPosts()
+  }, [subreddit])
 
   return (
     <>
-      <ul className="list-inside list-decimal">
-        {posts.map((post) => (
-          <li className="text-lg pb-4 leading-tight" key={post.id}>
-            <a
-              className="hover:underline"
-              href={post.url}
-              target="blank"
-              dangerouslySetInnerHTML={{__html: post.title}}
-            ></a>
-          </li>
-        ))}
-      </ul>
-      <button className="flex border py-2 px-4 m-auto" onClick={fetchData}>
+      {posts.length > 0 && (
+        <ul className="list-inside list-decimal">
+          {posts.map((post) => (
+            <li className="text-lg pb-4 leading-tight" key={post.id}>
+              <a
+                className="hover:underline"
+                href={post.url}
+                target="blank"
+                dangerouslySetInnerHTML={{__html: post.title}}
+              ></a>
+            </li>
+          ))}
+        </ul>
+      )}
+      <button className="flex border py-2 px-4 m-auto" onClick={loadMorePosts}>
         {loading ? <>Loading Posts...</> : <>Load More</>}
       </button>
     </>
