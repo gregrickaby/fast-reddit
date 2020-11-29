@@ -20,7 +20,7 @@ export default function Search() {
         <input
           id="search"
           type="text"
-          className="border p-2 w-3/4"
+          className="border p-2 w-4/6"
           value={inputValue}
           onChange={(e) => setValue(e.target.value)}
         />
