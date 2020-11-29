@@ -2,18 +2,38 @@ import {useEffect, useState} from 'react'
 import PropTypes from 'prop-types'
 
 export default function Results({subreddit}) {
+  const [loading, setLoading] = useState(null)
   const [posts, setPosts] = useState([])
+  const [lastPost, setLastPost] = useState(null)
 
-  useEffect(() => {
-    async function fetchData() {
-      const res = await fetch(
-        `https://www.reddit.com/r/${subreddit}/hot/.json?limit=10`
-      )
-      const json = await res.json()
-      setPosts(json.data.children.map((post) => post.data))
+  async function fetchData() {
+    setLoading(true)
+
+    // Fetch 10 posts.
+    const res = await fetch(
+      `https://www.reddit.com/r/${subreddit}/hot/.json?limit=10&after=${lastPost}`
+    )
+
+    // Convert results to JSON.
+    const json = await res.json()
+
+    // Pluck out all the posts.
+    const posts = json.data.children.map((post) => post.data)
+
+    // If there are posts...set them in state.
+    if (posts.length > 0) {
+      setPosts((prevResults) => [...prevResults, ...posts])
     }
+
+    // Keep track of the last post, for load more.
+    setLastPost(json.data.after)
+    setLoading(false)
+  }
+
+  // Load posts
+  useEffect(() => {
     fetchData()
-  }, [subreddit, setPosts])
+  }, []) // eslint-disable-line
 
   return (
     <>
@@ -29,6 +49,9 @@ export default function Results({subreddit}) {
           </li>
         ))}
       </ul>
+      <button className="flex border p-2 m-auto" onClick={fetchData}>
+        {loading ? <>Loading posts...</> : <>Load More</>}
+      </button>
     </>
   )
 }
