@@ -24,7 +24,7 @@ export default function Search() {
           value={inputValue}
           onChange={(e) => setValue(e.target.value)}
         />
-        <input className="border p-2" type="submit" value="Search" />
+        <input className="border py-2 px-4" type="submit" value="Search" />
       </form>
       <Results subreddit={subreddit} />
     </>
