@@ -40,7 +40,6 @@ export default function Results({subreddit}) {
           {posts.map((post) => (
             <li className="text-lg pb-4 leading-tight" key={post.id}>
               <a
-                className="hover:underline"
                 href={post.url}
                 target="blank"
                 dangerouslySetInnerHTML={{__html: post.title}}

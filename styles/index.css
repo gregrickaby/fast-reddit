@@ -16,6 +16,14 @@ input[type='submit'] {
   @apply bg-gray-300 dark:border-gray-600 dark:bg-gray-900 dark:text-white;
 }
 
-a:visited {
-  @apply text-gray-600;
+a {
+  @apply dark:text-white;
+
+  &:hover {
+    @apply underline;
+  }
+
+  &:visited {
+    @apply dark:text-gray-600;
+  }
 }
