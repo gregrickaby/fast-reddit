@@ -2,8 +2,8 @@ import PropTypes from 'prop-types'
 
 export default function Footer({author, url}) {
   return (
-    <footer>
-      <p className="text-sm text-center">
+    <footer className="mb-8 text-center">
+      <p className="text-sm">
         by{' '}
         <a href={url} target="_blank" rel="noreferrer">
           {author}

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types'
 
 export default function Header({title, description}) {
   return (
-    <header>
-      <h1 className="text-4xl mt-8 font-bold text-center">{title}</h1>
-      <p className="text-center">{description}</p>
+    <header className="mt-8 text-center">
+      <h1 className="text-4xl font-bold">{title}</h1>
+      <p className="text-sm">{description}</p>
     </header>
   )
 }
