@@ -1,15 +1,13 @@
+import config from '@/functions/config'
 import PropTypes from 'prop-types'
 import Meta from './Meta'
 
 export default function Layout({children}) {
   return (
     <>
-      <Meta
-        author="Greg Rickaby"
-        title="Fast Reddit"
-        description="Display a subreddit, fast!"
-        siteUrl="https://fast-reddit.vercel.app"
-      />
+      <Meta />
+      <h1 className="text-4xl font-bold text-center">{config.siteTitle}</h1>
+      <p className="text-center">{config.siteDescription}</p>
       <main className="container p-8 max-w-prose">{children}</main>
     </>
   )
