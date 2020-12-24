@@ -12,7 +12,7 @@ export default function Search() {
 
   return (
     <>
-      <form className="my-8 text-lg" onSubmit={handleSubmit}>
+      <form className="my-8 text-lg m-auto text-center" onSubmit={handleSubmit}>
         <span className="mr-1">r/</span>
         <label htmlFor="search" className="sr-only">
           type the name of a subreddit to display posts
