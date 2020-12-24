@@ -1,5 +1,5 @@
-import Meta from './Meta'
 import PropTypes from 'prop-types'
+import Meta from './Meta'
 
 export default function Layout({children}) {
   return (
