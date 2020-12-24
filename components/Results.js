@@ -53,7 +53,7 @@ export default function Results({subreddit}) {
         </ul>
       )}
       <button className="flex border py-2 px-4 m-auto" onClick={loadMorePosts}>
-        {loading ? <>Loading Posts...</> : <>Load More</>}
+        {loading ? <>Loading Posts...</> : <>Load More Posts</>}
       </button>
     </section>
   )
