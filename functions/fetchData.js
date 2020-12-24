@@ -1,5 +1,5 @@
 /**
- * Fetch Data from Reddit's API.
+ * Fetch data from Reddit.
  *
  * @param {string} subreddit The name of the subreddit.
  * @param {string} lastPost  The last post in the list.
