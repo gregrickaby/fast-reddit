@@ -1,6 +1,6 @@
-import {useEffect, useState} from 'react'
+import {fetchData} from 'functions/fetchData'
 import PropTypes from 'prop-types'
-import {fetchData} from '@/lib/functions'
+import {useEffect, useState} from 'react'
 
 export default function Results({subreddit}) {
   const [loading, setLoading] = useState(null)
@@ -35,7 +35,7 @@ export default function Results({subreddit}) {
 
   return (
     <>
-      {posts.length > 0 && (
+      {!!posts && posts.length > 0 && (
         <ul className="list-inside list-decimal">
           {posts.map((post) => (
             <li className="text-lg pb-4 leading-tight" key={post.id}>
@@ -56,5 +56,5 @@ export default function Results({subreddit}) {
 }
 
 Results.propTypes = {
-  subreddit: PropTypes.string
+  subreddit: PropTypes.string.isRequired
 }
