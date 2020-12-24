@@ -5,6 +5,7 @@ import Skeleton from './Skeleton'
 
 export default function Results({subreddit}) {
   const [loading, setLoading] = useState(null)
+  const [loadingMore, setLoadingMore] = useState(null)
   const [posts, setPosts] = useState([])
   const [lastPost, setLastPost] = useState(null)
 
@@ -23,9 +24,11 @@ export default function Results({subreddit}) {
   }
 
   async function loadMorePosts() {
+    setLoadingMore(true)
     const data = await fetchData(subreddit, lastPost)
     setPosts((prevResults) => [...prevResults, ...data.posts])
     setLastPost(data.after)
+    setLoadingMore(false)
   }
 
   useEffect(() => {
@@ -52,8 +55,12 @@ export default function Results({subreddit}) {
           ))}
         </ul>
       )}
-      <button className="flex border py-2 px-4 m-auto" onClick={loadMorePosts}>
-        {loading ? <>Loading Posts...</> : <>Load More Posts</>}
+
+      <button
+        className="animate flex border py-2 px-4 m-auto"
+        onClick={loadMorePosts}
+      >
+        {loadingMore ? <>Loading...</> : <>Load More Posts</>}
       </button>
     </section>
   )
