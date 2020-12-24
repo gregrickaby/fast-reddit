@@ -37,15 +37,16 @@ export default function Results({subreddit}) {
   }
 
   return (
-    <>
+    <section>
       {!!posts && posts.length > 0 && (
-        <ul className="list-inside list-decimal">
+        <ul className="list-inside list-decimal py-6">
           {posts.map((post) => (
-            <li className="text-lg pb-4 leading-tight" key={post.id}>
+            <li className="text-lg pb-4" key={post.id}>
               <a
                 href={post.url}
                 target="blank"
                 dangerouslySetInnerHTML={{__html: post.title}}
+                rel="noreferrer"
               ></a>
             </li>
           ))}
@@ -54,7 +55,7 @@ export default function Results({subreddit}) {
       <button className="flex border py-2 px-4 m-auto" onClick={loadMorePosts}>
         {loading ? <>Loading Posts...</> : <>Load More</>}
       </button>
-    </>
+    </section>
   )
 }
 
