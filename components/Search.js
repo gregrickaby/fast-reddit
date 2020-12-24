@@ -12,17 +12,18 @@ export default function Search() {
 
   return (
     <>
-      <form className="my-8 text-lg m-auto text-center" onSubmit={handleSubmit}>
+      <form className="my-4 text-lg m-auto text-center" onSubmit={handleSubmit}>
         <label htmlFor="search" className="sr-only">
           type the name of a subreddit to display posts
         </label>
         <div className="flex flex-1">
           <input
+            className="border w-full p-2"
             id="search"
-            type="text"
-            className="border p-2 w-full"
-            value={inputValue}
             onChange={(e) => setValue(e.target.value)}
+            placeholder="reactjs"
+            type="text"
+            value={inputValue}
           />
           <input
             className="border py-2 px-4 ml-1"
