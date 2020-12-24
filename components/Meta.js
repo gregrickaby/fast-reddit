@@ -13,12 +13,7 @@ export default function Meta() {
       <meta name="msapplication-TileColor" content="#fffff" />
       <meta name="msapplication-config" content="/favicon/browserconfig.xml" />
       <meta name="theme-color" content="#fff" />
-      <link
-        as="fetch"
-        rel="preload"
-        href="https://www.reddit.com/r/reactjs/.json?limit=9"
-        crossOrigin="anonymous"
-      />
+      <link rel="preconnect" href="//www.reddit.com" crossOrigin="anonymous" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
