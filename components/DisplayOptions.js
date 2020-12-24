@@ -22,14 +22,16 @@ export default function DisplayOptions() {
   return (
     <div
       className={cn('flex items-center fixed top-0 right-0 p-2', {
-        'bg-gray-900': fontSelector
+        'dark:bg-gray-900 bg-white': fontSelector
       })}
     >
-      <form id="display" onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="display" className="sr-only">
-          select display options
+          toggle display options
         </label>
-        <button className="px-2">{fontSelector ? 'X' : 'Aa'}</button>
+        <button id="display" className="bg-transparent px-2">
+          {fontSelector ? 'X' : 'Aa'}
+        </button>
       </form>
 
       {fontSelector && (
