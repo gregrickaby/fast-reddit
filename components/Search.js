@@ -14,7 +14,7 @@ export default function Search() {
     <>
       <form className="my-4 text-lg m-auto text-center" onSubmit={handleSubmit}>
         <label htmlFor="search" className="sr-only">
-          type the name of a subreddit to display posts
+          type the name of a subreddit and press enter
         </label>
         <div className="flex">
           <span className="mr-1 self-center">r/</span>
@@ -26,11 +26,7 @@ export default function Search() {
             type="text"
             value={inputValue}
           />
-          <input
-            className="border py-2 px-4 ml-1"
-            type="submit"
-            value="View Posts"
-          />
+          <button className="border py-2 px-4 ml-1">Search</button>
         </div>
       </form>
       <Results subreddit={subreddit} />
