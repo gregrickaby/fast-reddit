@@ -11,7 +11,7 @@ export async function fetchData(subreddit, lastPost) {
 
   // Attempt to fetch posts.
   const response = await fetch(
-    `https://www.reddit.com/r/${subreddit}/hot/.json?limit=10${after}`
+    `https://www.reddit.com/r/${subreddit}/hot/.json?limit=9${after}`
   )
 
   // No response? Bail...
