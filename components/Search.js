@@ -16,7 +16,8 @@ export default function Search() {
         <label htmlFor="search" className="sr-only">
           type the name of a subreddit to display posts
         </label>
-        <div className="flex flex-1">
+        <div className="flex">
+          <span className="mr-1 self-center">r/</span>
           <input
             className="border w-full p-2"
             id="search"
