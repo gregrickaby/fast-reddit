@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Host: https://fast-reddit.vercel.app
+Sitemap: https://fast-reddit.vercel.app/sitemap.xml
