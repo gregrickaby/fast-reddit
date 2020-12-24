@@ -1,6 +1,7 @@
 import {fetchData} from 'functions/fetchData'
 import PropTypes from 'prop-types'
 import {useEffect, useState} from 'react'
+import Skeleton from './Skeleton'
 
 export default function Results({subreddit}) {
   const [loading, setLoading] = useState(null)
@@ -22,16 +23,18 @@ export default function Results({subreddit}) {
   }
 
   async function loadMorePosts() {
-    setLoading(true)
     const data = await fetchData(subreddit, lastPost)
     setPosts((prevResults) => [...prevResults, ...data.posts])
     setLastPost(data.after)
-    setLoading(false)
   }
 
   useEffect(() => {
     loadInitialPosts()
   }, [subreddit])
+
+  if (loading) {
+    return <Skeleton />
+  }
 
   return (
     <>
