@@ -2,9 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'ComicNeue';
+  src: url(/fonts/ComicNeue-Regular.woff2);
+}
+
+@font-face {
+  font-family: 'OpenDyslexic';
+  src: url(/fonts/OpenDyslexic-Regular.woff2);
+}
+
 html,
 body {
-  @apply font-mono dark:bg-gray-900 dark:text-white;
+  @apply dark:bg-gray-900 dark:text-white;
+
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
 }
 
 input[type='text'] {

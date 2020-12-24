@@ -6,6 +6,10 @@ module.exports = {
       container: {
         center: true,
         margin: 'auto'
+      },
+      fontFamily: {
+        comic: ['ComicNeue', 'sans-serif'],
+        dyslexic: ['OpenDyslexic', 'sans-serif']
       }
     }
   },
