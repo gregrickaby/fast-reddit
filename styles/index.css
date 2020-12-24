@@ -4,7 +4,7 @@
 
 html,
 body {
-  @apply dark:bg-gray-900 dark:text-white;
+  @apply font-mono dark:bg-gray-900 dark:text-white;
 }
 
 input[type='text'] {

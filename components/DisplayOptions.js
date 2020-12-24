@@ -3,7 +3,7 @@ import cn from 'classnames'
 import {useState} from 'react'
 
 export default function DisplayOptions() {
-  const [fontFamily, setFontFamily] = useState('font-sans')
+  const [fontFamily, setFontFamily] = useState('font-mono')
   const [fontSelector, toggleFontSelector] = useState(false)
 
   function handleSubmit(event) {
@@ -42,9 +42,9 @@ export default function DisplayOptions() {
             value={fontFamily}
             onChange={fontSelect}
           >
+            <option value="font-mono">Monospaced</option>
             <option value="font-sans">Sans Serif</option>
             <option value="font-serif">Serif</option>
-            <option value="font-mono">Monospaced</option>
           </select>
         </div>
       )}
