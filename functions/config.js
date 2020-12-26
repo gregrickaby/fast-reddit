@@ -3,5 +3,5 @@ export default {
   siteDescription: 'Display a subreddit, fast!',
   siteUrl: 'https://fast-reddit.vercel.app/',
   siteAuthor: '@gregrickaby',
-  authorUrl: 'https://github.com/gregrickaby'
+  authorUrl: 'https://gregrickaby.com'
 }

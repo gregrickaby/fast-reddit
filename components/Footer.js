@@ -4,7 +4,7 @@ export default function Footer({author, url}) {
   return (
     <footer className="mb-8 text-center">
       <p className="text-sm">
-        by{' '}
+        website by{' '}
         <a href={url} target="_blank" rel="noreferrer">
           {author}
         </a>
