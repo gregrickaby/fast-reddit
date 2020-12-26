@@ -13,21 +13,24 @@ export default function Search() {
   return (
     <>
       <form className="my-4 text-lg m-auto text-center" onSubmit={handleSubmit}>
-        <label htmlFor="search" className="sr-only">
-          type the name of a subreddit and press enter
-        </label>
         <div className="flex">
           <span className="mr-1 self-center">r/</span>
           <input
+            autoCapitalize="none"
             className="border w-full p-2"
             id="search"
-            onChange={(e) => setValue(e.target.value)}
+            minLength="4"
+            onChange={(e) => setValue(e.target.value.trim())}
+            pattern="^[^~`^<>]+$"
             placeholder="reactjs"
             type="text"
             value={inputValue}
           />
           <button className="border py-2 px-4 ml-1">Search</button>
         </div>
+        <label htmlFor="search" className="text-sm italic text-left">
+          Type the name of a subreddit and press enter
+        </label>
       </form>
       <Results subreddit={subreddit} />
     </>
