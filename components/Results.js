@@ -20,6 +20,7 @@ export default function Results({subreddit}) {
     const data = await fetchData(subreddit)
     setPosts(data.posts)
     setLastPost(data.after)
+    setLoading(false)
   }
 
   async function loadMorePosts() {
