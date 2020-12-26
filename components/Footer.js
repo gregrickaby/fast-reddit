@@ -2,10 +2,10 @@ import PropTypes from 'prop-types'
 
 export default function Footer({author, url}) {
   return (
-    <footer className="mb-8 text-center">
-      <p className="text-sm">
+    <footer className="py-4 text-xs font-mono">
+      <p>
         website by{' '}
-        <a href={url} target="_blank" rel="noreferrer">
+        <a href={url} rel="noopener">
           {author}
         </a>
       </p>
