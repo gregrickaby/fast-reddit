@@ -9,9 +9,9 @@ export default function Layout({children}) {
   return (
     <>
       <Meta />
-      <Header title={config.siteTitle} description={config.siteDescription} />
+      <Header title={config?.siteTitle} description={config?.siteDescription} />
       <main className="container p-8 max-w-prose">{children}</main>
-      <Footer author={config.siteAuthor} url={config.authorUrl} />
+      <Footer author={config?.siteAuthor} url={config?.authorUrl} />
       <DisplayOptions />
     </>
   )

@@ -18,16 +18,16 @@ export default function Results({subreddit}) {
     setLoading(true)
     clearState()
     const data = await fetchData(subreddit)
-    setPosts(data.posts)
-    setLastPost(data.after)
+    setPosts(data?.posts)
+    setLastPost(data?.after)
     setLoading(false)
   }
 
   async function loadMorePosts() {
     setLoadingMore(true)
     const data = await fetchData(subreddit, lastPost)
-    setPosts((prevResults) => [...prevResults, ...data.posts])
-    setLastPost(data.after)
+    setPosts((prevResults) => [...prevResults, ...data?.posts])
+    setLastPost(data?.after)
     setLoadingMore(false)
   }
 
@@ -41,14 +41,14 @@ export default function Results({subreddit}) {
 
   return (
     <section>
-      {!!posts && posts.length > 0 && (
+      {!!posts?.length && (
         <ul className="list-inside list-decimal py-6">
           {posts.map((post) => (
-            <li className="text-lg pb-4" key={post.id}>
+            <li className="text-lg pb-4" key={post?.id}>
               <a
-                href={post.url}
+                href={post?.url}
                 target="blank"
-                dangerouslySetInnerHTML={{__html: post.title}}
+                dangerouslySetInnerHTML={{__html: post?.title}}
                 rel="noreferrer"
               ></a>
             </li>

@@ -35,7 +35,7 @@ export async function fetchData(subreddit, lastPost) {
 
   // Finally, return posts.
   return {
-    posts: json.data.children.map((post) => post.data),
-    after: json.data.after
+    posts: json?.data?.children.map((post) => post?.data),
+    after: json?.data?.after
   }
 }
