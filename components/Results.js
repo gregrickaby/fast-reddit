@@ -44,7 +44,7 @@ export default function Results({subreddit}) {
       {!!posts?.length && (
         <ul className="list-inside list-decimal py-6">
           {posts.map((post) => (
-            <li className="text-lg pb-4" key={post?.id}>
+            <li className="text-xl pb-5" key={post?.id}>
               <a
                 href={post?.url}
                 target="blank"
