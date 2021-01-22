@@ -4,11 +4,17 @@
 
 @font-face {
   font-family: 'ComicNeue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
   src: url(/fonts/ComicNeue-Regular.woff2);
 }
 
 @font-face {
   font-family: 'OpenDyslexic';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
   src: url(/fonts/OpenDyslexic-Regular.woff2);
 }
 
@@ -42,7 +48,7 @@ a {
 }
 
 .animate {
-  animation: shimmer 2s infinite linear;
+  animation: shimmer 15s infinite linear;
   background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
 }
