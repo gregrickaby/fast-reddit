@@ -10,6 +10,12 @@ module.exports = {
       fontFamily: {
         comic: ['ComicNeue', 'sans-serif'],
         dyslexic: ['OpenDyslexic', 'sans-serif']
+      },
+      colors: {
+        gray: {
+          500: '#2d2d2d',
+          900: '#111'
+        }
       }
     }
   },
